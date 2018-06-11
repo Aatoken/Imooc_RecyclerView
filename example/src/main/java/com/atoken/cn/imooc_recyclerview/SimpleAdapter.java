@@ -11,14 +11,13 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.MyViewHolder> {
 
     private LayoutInflater mInflater;
-    private Context mContext;
+
     private List<String> mDatas;
 
     public SimpleAdapter(Context mContext, List<String> mDatas) {
-        this.mContext = mContext;
         this.mDatas = mDatas;
         this.mInflater=LayoutInflater.from(mContext);
     }
@@ -40,14 +39,16 @@ public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
     public int getItemCount() {
         return mDatas.size();
     }
-}
 
-class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder {
 
-    TextView tv;
-    public MyViewHolder(View itemView) {
-        super(itemView);
+        TextView tv;
+        public MyViewHolder(View itemView) {
+            super(itemView);
 
-        tv = (TextView)itemView.findViewById(R.id.id_tv);
+            tv = (TextView)itemView.findViewById(R.id.id_tv);
+        }
     }
+
 }
+
